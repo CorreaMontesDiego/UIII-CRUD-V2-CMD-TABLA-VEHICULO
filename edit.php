@@ -1,26 +1,19 @@
 <?php
 include("db.php");
-    $marca = "";
-    $modelo = "";
-    $kilometraje ="";
-    $anio = "";
-    $vin ="";
-    $color = "";
-    $precio = "";
 
-if  (isset($_GET['idVehiculo'])) {
-  $id = $_GET['idVehiculo'];
+if  (isset($_GET['id'])) {
+  $id = $_GET['id'];
   $query = "SELECT * FROM vehiculo WHERE idVehiculo=$id";
   $result = mysqli_query($conn, $query);
   if (mysqli_num_rows($result) == 1) {
     $row = mysqli_fetch_array($result);
-    $marca = $_POST['marca'];
-    $modelo = $_POST['modelo'];
-    $kilometraje = $_POST['kilometraje'];
-    $anio = $_POST['anio'];
-    $vin = $_POST['vin'];
-    $color = $_POST['color'];
-    $precio = $_POST['precio'];
+    $marca = $row['marca'];
+    $modelo = $row['modelo'];
+    $kilometraje = $row['kilometraje'];
+    $anio = $row['anio'];
+    $vin = $row['vin'];
+    $color = $row['color'];
+    $precio = $row['precio'];
   }
 }
 
